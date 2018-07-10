@@ -61,11 +61,11 @@ public class JsonByExample {
         String jsonComplejo = "{'fecha':'Jul 9, 2018 3:37:49 PM','cliente':'LIMPIEZA Y ASEO PROFESIONAL','detalle':[{'producto':'Cloro','importe':150.0,'precioUnitario':15.00,'cantidad':10},{'producto':'Escoba','importe':30,'precioUnitario':30.00,'cantidad':1},{'producto':'Aromatizante ambiental','importe':100.0,'precioUnitario':10.00,'cantidad':10}]}";
         Venta venta2 = gson.fromJson(jsonComplejo, Venta.class);
 
-        System.out.println("Fecha: " + venta.getFecha());
-        System.out.println("Cliente: " + venta.getCliente());
+        System.out.println("Fecha: " + venta2.getFecha());
+        System.out.println("Cliente: " + venta2.getCliente());
         System.out.println();
 
-        for (DetallesVenta detalle : venta.getDetalle()) {
+        for (DetallesVenta detalle : venta2.getDetalle()) {
             System.out.println("Producto: " + detalle.getProducto());
             System.out.println("Importe: " + detalle.getImporte());
             System.out.println("Precio Unitario: " + detalle.getPrecioUnitario());
