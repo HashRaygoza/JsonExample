@@ -6,6 +6,9 @@
 package mx.com.pydee.jsonexample;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -70,6 +73,22 @@ public class JsonByExample {
             System.out.println("Importe: " + detalle.getImporte());
             System.out.println("Precio Unitario: " + detalle.getPrecioUnitario());
             System.out.println();
+        }
+
+        // Convertimos un arreglo suelto a JSON
+        String jsonArray = gson.toJson(detalles);
+        System.out.println(jsonArray);
+
+        // Convertir un array Json a ArrayList
+
+        // Creaos el tipo que represente el arreglo
+        Type listType = new TypeToken<ArrayList<DetallesVenta>>(){}.getType();
+        ArrayList<DetallesVenta> arrayDeJson = gson.fromJson(jsonArray, listType);
+
+        System.out.println("\n");
+
+        for(DetallesVenta detalle : arrayDeJson) {
+            System.out.println(detalle.getProducto());
         }
 
     }
